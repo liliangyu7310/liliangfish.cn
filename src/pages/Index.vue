@@ -3,9 +3,7 @@
       <!-- 侧边栏 -->
       <div class="side-menu">
           <h2 class="side-menu__tt">极客猿梦导航</h2>
-          <Menu :menuData="navData"></Menu>
-
-      
+          <Menus :menuData="navData"></Menus>
       </div>
 
       <!-- 主内容 -->
@@ -19,7 +17,7 @@
 </template>
 
 <script>
-import Menu from '../component/Menu'
+import Menus from '../component/Menus'
 import ClassifyItem from '../component/ClassifyItem'
 import GoTop from '../component/GoTop'
 
@@ -27,7 +25,7 @@ import GoTop from '../component/GoTop'
 export default {
   name: "index",
   components: {
-    Menu,
+    Menus,
     ClassifyItem,
     GoTop
   },
@@ -37,13 +35,13 @@ export default {
     }
   },
   created: function() {
-    this.$http.get('http://test.cn/api')
+    this.$http.get('https://cnodejs.org/api/v1')
       .then(res => {
         this.navData = res.data;
       })
   }
-
 };
+
 </script>
 
 
@@ -55,7 +53,6 @@ $white: #fff;
 $sideBgColor: #30333c;
 $menuTxtColor: #6b7386;
 $blue: #3668bd;
-
 
 
 

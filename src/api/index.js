@@ -30,7 +30,6 @@ function randomSubData() {
             logo: Random.image('100x100',Random.color()),
             des: Random.cparagraph(1,2)
         };
-
         datas.push(data);
     }
 
@@ -52,5 +51,6 @@ function randomNum(minNum,maxNum){
             break; 
     } 
 } 
+
 
 export default Mock.mock('http://test.cn/api', createData);

@@ -4,7 +4,6 @@ import App from './App.vue'
 import axios from 'axios'
 
 
-import 'normalize.css'
 import './fonts/iconfont.css'
 
 Vue.prototype.$http= axios

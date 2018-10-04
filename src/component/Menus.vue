@@ -1,5 +1,5 @@
 <template>
-    <ul class="side-menu__list">
+      <ul class="side-menu__list">
         <li
         v-for="(item,index) in menuData"
         :key="item.id"
@@ -11,7 +11,7 @@
         :href="['#'+item.title]"
         @click="toggle(index)"
         >{{item.title}}</a>
-    </li>
+      </li>
     </ul>
 </template>
 
@@ -19,7 +19,7 @@
 <script>
 
 export default {
-    name: "menu",
+    name: "menus",
     props: ['menuData'],
     data: function() {
         return {

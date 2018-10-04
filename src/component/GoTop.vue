@@ -20,8 +20,6 @@ export default {
       },
       handleScroll() {
             var selfScrollDis = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-            console.log(selfScrollDis, this.scrollDis);
-
             if(selfScrollDis < this.scrollDis) {
                 this.isShow = true;
                 // 马上到达顶部隐藏
