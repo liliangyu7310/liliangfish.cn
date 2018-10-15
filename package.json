@@ -9,9 +9,13 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "body-parser": "^1.18.3",
     "element-ui": "^2.4.7",
+    "express": "^4.16.4",
     "mockjs": "^1.0.1-beta3",
-    "vue": "^2.5.17"
+    "mongoose": "^5.3.2",
+    "vue": "^2.5.17",
+    "vue-resource": "^1.5.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.3",

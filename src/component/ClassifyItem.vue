@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="classify-item"
-         v-for="item in classifyData"
+         v-for="item in classifyData.data"
          :key="item.id"
          :id="item.title">
         <h4 class="classify-item__tt">
@@ -16,7 +16,7 @@
               <a :href=navItem.href>
               <div class="nav-item__main">
                   <div class="nav-item__logo">
-                  <img :src=navItem.logo>
+                  <img :src="navItem.logo">
                   </div>
                   <span class="nav-item__tt">{{navItem.title}}</span>
               </div>
@@ -34,8 +34,12 @@ export default {
   name: "classifyItem",
   props: ["classifyData"],
   data: function() {
-    return {};
-  }
+    return {
+      websiteLogo: ''
+    }
+  },
+
+  
 };
 </script>
 
@@ -60,7 +64,7 @@ export default {
   padding-top: 15px;
   transition: all 0.3s;
   &:hover {
-    transform: translateY(-10px);
+    transform: translateY(-6px);
   }
   > a {
     padding: 25px 15px;

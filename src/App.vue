@@ -5,13 +5,14 @@
 </template>
 
 <script>
-import Index from './pages/Index.vue'
+import Index from './pages/Index'
 
 export default {
   name: 'app',
   components: {
     Index
   }
+  
 }
 </script>
 
@@ -35,4 +36,6 @@ ul,li {
 }
 img {max-width: 100%;}
 h4 {font-weight: 500}
+a {color: #000DFF;}
+
 </style>

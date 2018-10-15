@@ -1,7 +1,7 @@
 <template>
       <ul class="side-menu__list">
         <li
-        v-for="(item,index) in menuData"
+        v-for="(item,index) in menuData.data"
         :key="item.id"
         class="side-menu__item"
         :class="{active: index === activeIndex}"
@@ -31,7 +31,7 @@ export default {
           this.activeIndex = indexs;
       }
 
-  },
+  }
 
 
 }
