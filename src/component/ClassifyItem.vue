@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="classify-item"
-         v-for="item in classifyData.data"
+         v-for="item in classifyData"
          :key="item.id"
          :id="item.title">
         <h4 class="classify-item__tt">
@@ -11,7 +11,7 @@
 
         <ul class="classify-item__ct">
           <li class="nav-item"
-          v-for="navItem in item.subData"
+          v-for="navItem in item.subNav"
           :key="navItem.id">
               <a :href=navItem.href>
               <div class="nav-item__main">
@@ -47,7 +47,6 @@ export default {
 
 <style lang="scss">
 .classify-item {
-  background: #fff;
   padding: 20px;
   margin-bottom: 15px;
 }
@@ -63,9 +62,7 @@ export default {
   padding-right: 15px;
   padding-top: 15px;
   transition: all 0.3s;
-  &:hover {
-    transform: translateY(-6px);
-  }
+  
   > a {
     padding: 25px 15px;
     display: inherit;
@@ -74,6 +71,12 @@ export default {
     border: 1px solid #e4ecf3;
     box-shadow: 1px 2px 3px #f2f6f8;
     border-radius: 3px;
+    background: #fff;
+    &:hover {
+      box-shadow: 0 26px 40px -24px rgba(0, 36, 100, 0.3);
+      transition: all 0.3s ease;
+      transform: translateY(-6px);
+    }
   }
 }
 .nav-item__main {

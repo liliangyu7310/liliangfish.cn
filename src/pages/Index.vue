@@ -2,25 +2,20 @@
   <div class="index">
       <!-- 侧边栏 -->
       <div class="side-menu">
-          <h2 class="side-menu__tt">极客猿梦导航</h2>
-          <Menus :menuData="navData"></Menus>
+          <h2 class="side-menu__tt">极客猿梦导航 <i class="el-icon-circle-check"></i></h2>
+        
+          <el-menu background-color="#30333c" text-color="#6b7386" active-text-color="#fff"> 
 
-        <!-- 按钮组 -->
-        <div class="btn-group">
-          <p class="btn-group__item">
-            <i class="iconfont icon-daohang"></i>
-            <span>提交网站</span>
-            <i class="icon-arrow"></i>
+          <el-menu-item :index="index" v-for="(item,index) in navData" :key="index">
+              <i class="el-icon-menu"></i>
+              <span slot="title">{{item.title}}</span>
+            </el-menu-item>
+          </el-menu>
 
-          </p>
-
-          <p class="btn-group__item">
-            <i class="iconfont icon-liuyan"></i>
-            <span>留言反馈</span>
-            <i class="icon-arrow"></i>
-
-          </p>
-        </div>
+          <el-button-group>
+            <el-button type="primary" icon="el-icon-edit-outline">提交网站</el-button>
+            <el-button type="primary">留言反馈<i class="el-icon-edit el-icon--right"></i></el-button>
+          </el-button-group>
       </div>
       
 
@@ -36,28 +31,55 @@
 </template>
 
 <script>
-import Menus from "../component/Menus";
-import ClassifyItem from "../component/ClassifyItem";
 import GoTop from "../component/GoTop";
+import ClassifyItem from "../component/ClassifyItem";
 
 export default {
   name: "index",
   components: {
-    Menus,
-    ClassifyItem,
-    GoTop
+    GoTop,
+    ClassifyItem
   },
   data: function() {
     return {
-      navData: [],
+      navData: [
+        {
+          title: '技术社区',
+          icon: '',
+          subNav: [
+            {
+              title: '掘金',
+              href: 'www.juejin.com',
+              des: '掘金是一个帮助开发者学习的高质量社区'
+            },
+            {
+              title: 'CNDZ',
+              href: 'www.juejin.com',
+              des: '掘金是一个帮助开发者学习的高质量社区'
+            }
+          ]
+        },
+        {
+          title: '技术文档',
+          icon: '',
+          subNav: [
+            {
+              title: '掘金',
+              href: 'www.juejin.com',
+              des: '掘金是一个帮助开发者学习的高质量社区'
+            },
+            {
+              title: 'CNDZ',
+              href: 'www.juejin.com',
+              des: '掘金是一个帮助开发者学习的高质量社区'
+            }
+          ]
+        }
+      ],
     };
   },
   created: function() {
-    var _this = this
-    this.$http.get("/api").then((res) => {
-        _this.navData = res.data;
-    })
-
+    
     
   }
 };
@@ -66,83 +88,38 @@ export default {
 
 
 <style lang="scss">
-// 颜色
-$white: #fff;
-$sideBgColor: #30333c;
-$menuTxtColor: #6b7386;
-$blue: #3668bd;
+  .index {height: 100%;}
 
-// 主要内容
-
-.content {
-  margin: 20px;
-  margin-left: calc(248px + 20px);
-}
-
-.btn-group__item {
-  display: block;
-  cursor: pointer;
-  line-height: 2.5;
-  padding-left: 10px;
-  display: flex;
-  align-items: center;
-  position: relative;
-  color: #fff;
-  &:hover {
-    background: #222;
+  .side-menu__tt {
+    margin: 15px 0;
+    text-align: center;
   }
-  span {
-    font-size: 14px;
-    flex: 1;
-  }
-}
-.icon-arrow {
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-top: 1px solid #ffffff;
-  border-right: 1px solid #ffffff;
-  transform: rotate(45deg);
-  right: 10px;
-}
-
-// 响应式
-@media (max-width: 1024px) {
-  .nav-item {
-    width: 33.3%;
-  }
-}
-@media (max-width: 780px) {
-  .nav-item {
-    width: 50%;
-    &:nth-child(even) {
-      padding-right: 0;
-    }
-  }
-}
-@media (max-width: 680px) {
   .side-menu {
-    display: none;
+    position: fixed;
+    background: #30333c;
+    color: #6b7386;
+    box-sizing: border-box;
+    flex-direction: column;
+    display: flex;
+    width: 248px;
+    transition: all .5s;
+    top: 0;
+    height: 100%;
   }
+
   .content {
-    margin-left: 20px;
+    margin: 20px 20px 20px 270px;
   }
-}
-@media (max-width: 540px) {
-  .content {
-    margin: 10px;
+
+  .el-button-group {
+    bottom: 10px;
+    left: calc(100% - 15.2em);
+    position: absolute;
   }
-  .nav-item {
-    padding-right: 5px;
-    padding-top: 10px;
-    > a {
-      padding: 20px 10px;
-    }
+  .el-button--primary {
+    background-color: #2e2f31;
+    border-color: #2e2f31;
   }
-  h4.classify-item__tt {
-    padding: 5px 0 10px;
-  }
-}
 </style>
 
 
