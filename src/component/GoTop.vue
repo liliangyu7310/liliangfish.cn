@@ -51,7 +51,7 @@ export default {
         width: 25px;
         height: 25px;
         position: fixed;
-        right: 10px;
+        right: 0;
         bottom: 30px;
         z-index: 9999;
         box-shadow: 0 0 20 #eee;

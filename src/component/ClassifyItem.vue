@@ -2,7 +2,7 @@
     <div>
         <div class="classify-item"
          v-for="item in classifyData"
-         :key="item.id"
+         :key="item._id"
          :id="item.title">
         <h4 class="classify-item__tt">
         <i class="iconfont icon-zixun"></i>
@@ -11,14 +11,14 @@
 
         <ul class="classify-item__ct">
           <li class="nav-item"
-          v-for="navItem in item.subNav"
-          :key="navItem.id">
+          v-for="(navItem, index) in item.subData"
+          :key="index">
               <a :href=navItem.href>
               <div class="nav-item__main">
                   <div class="nav-item__logo">
                   <img :src="navItem.logo">
                   </div>
-                  <span class="nav-item__tt">{{navItem.title}}</span>
+                  <span class="nav-item__tt">{{navItem.name}}</span>
               </div>
               <p class="nav-item__des multi-line-hide">{{navItem.des}}</p>
               </a>
@@ -95,6 +95,7 @@ export default {
   border-radius: 50%;
   margin-right: 10px;
   min-width: 40px;
+  img {width:100%}
 }
 
 .multi-line-hide {

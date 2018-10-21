@@ -18,6 +18,37 @@ router.get("/data", (req, res) => {
     });
 });
 
+// 添加一个英雄信息路由
+router.post("/data", (req, res) => {
+  //使用Hero model上的create方法储存数据
+ 
+  
+  Data.update({
+      title: req.body.title
+  }, {
+      $push: {
+        subData: req.body.subData
+      }
+  }, (err, doc) => {
+    if(doc.n == 0) {
+      console.log('没有这个分类')
+      // 不在的网站分类新建
+      Data.create(req.body, (err, nav) => {
+        if (err) {
+          res.json(err);
+        } else {
+          res.json(nav);
+        }
+      })
+    }
+  })
+
+  
+
+  
+})
+
+
 
 module.exports = router;
 

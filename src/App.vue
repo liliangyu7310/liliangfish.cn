@@ -1,17 +1,15 @@
 <template>
   <div id="app">
-    <Index />
+    123
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Index from './pages/Index'
 
 export default {
   name: 'app',
-  components: {
-    Index
-  }
+  
   
 }
 </script>
@@ -29,7 +27,8 @@ export default {
 html,body,#app {
   width: 100%;
   height: 100%;
-  background: #f3f6f8;
+  background: #f9f9f9;
+  overflow: auto;
 }
 ul,li {
   list-style-type: none;
